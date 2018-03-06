@@ -60,20 +60,21 @@ This paper details an effort towards incorporating audio source localization as 
 Audio and music have historically been a passive part of video games. Soundtracks that accompany video games are used to captivate the player's attention and incorporate a sense of realism to the game environment, but they have rarely been an active part of the game-play mechanism until recently.
 Music driven games started out in the form of rhythm based games where the player's sense of rhythm is challenged. These games typically involve a player in performing certain actions in the form of a dance or pressing buttons in a sequence. With the advent of virtual reality, 
 Virtual reality rhythm games mostly work in a similar manner but rely on hand held controllers or motion trackers to interact with the rhythmic elements of the game.
-Apart from rhythm, there are a few games which involve audio from the user as a core mechanism of game-play. These typically rely on features like volume 
- 
- - what you propose - why in VR - why audio
+Apart from rhythm, there are a few games which involve audio from the user as a core mechanism of game-play. These typically rely on features like volume and pitch to control some aspects of the game.
+Speech recognition has also been used as an input modality, typically for user interfaces in games.
+The use of audio and its properties as an input to games has been very minimal and with the advancement in gaming technology and signal processing prowess of computers, exploration of these possible real-time interactions is warranted.
  
 
 \section{Background}
+Rhythm based games started out in Japan as electromechanical arcade games where users would press buttons in rhythm to score more points. As time progresses, the required rhythm gets more complicated and increases in speed. These games would also involve more than one player taking turns and pressing buttons.
 
-- first rhythm game example
+Mobile-based games have also used audio as an input to control certain aspects of the game. Chicken Scream \footnote{http://www.perfecttapgames.com} is a mobile game in which the user controls the main character by shouting and screaming. The louder the shout, the faster the character moves. Modulation of volume is used as a mechanism to overcome in-game obstacles.
 
-- popular rhythm games example
+Audio-only games refer to games which can only be played and perceived through sound and acoustics. They were initially developed for the visually impaired community but have huge potential for mobile and multi-player gaming \cite{rober2005playing}. Although these games are limited in the amount of information which can be conveyed to the player, they also have a few advantages over conventional games, such as increased degree of spatial freedom, no necessity of screens and other costly equipment depending upon the game, lower computational complexity and hence less latency, making these games perfectly suited for mobile gaming.
 
-- audio based games example - chicken scream
+There are many games in the virtual reality category which use music as an input to generate in-game content. Audioshield\footnote{http://audio-shield.com/} and Rockband VR\footnote{http://www.rockbandvr.com/} are the most important examples of this genre. These typicaly use predetermined times which are determined the  music being played to create cues in the forms of game-objects with which the user interacts.
 
-- VR rhythm games example
+/////////////////Should I add more research here? \cite{Igarashi:2001:VSU:502348.502372}
 
 \section{System}  
 
@@ -86,11 +87,15 @@ Apart from rhythm, there are a few games which involve audio from the user as a 
 - Frequency band detection 
 
 \subsection{Tools} 
-Is this section even important??
-HTC Vive
-Respeaker mic array
-juce
-unity3d
+/////////////////Is this section even important??
+
+The author proposes a system which includes a microphone array for the capture of audio to estimate the incident audio angle for the HTC Vive Virtual Reality headset which allows users to move in a restricted 3-D space and interact with it using hand-held controllers which are motion tracked. 
+
+The system uses two Shure SM57 dynamic microphones with the Focusrite Scarlet 2i2 audio interface to record input stereo audio for further processing.
+
+The development of the game has been done using Unity3D as the main IDE. The system described in this paper uses JUCE \footnote{https://juce.com} to process the input audio from the microphones. This is because Unity does not natively support stereo audio input for processing. The calculated lag values from JUCE are sent to Unity using Open Sound Control(OSC), which is a communication protocol optimized for modern networking technology. Both JUCE and Unity natively support OSC communication.
+
+The speech recognition used in the system is accomplished using the Microsoft Speech Recognition tool for Unity. 
 
 \section{Game Design} 
 
@@ -103,8 +108,6 @@ unity3d
 \section{Future Work} 
 
 Summarize your work and conclude.
-
-Example cites, \citet{Pulkki1997:VBAPbase} created VBAP and DirAC \citep{Pulkki2007:DirAC_JAES}.
 
 \bibliographystyle{jaes}
 
