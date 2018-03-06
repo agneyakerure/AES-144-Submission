@@ -97,7 +97,7 @@ For pitch detection, the system uses the time-domain based autocorrelation appro
 
 The author proposes a system which includes a microphone array for the capture of audio to estimate the incident audio angle for the HTC Vive Virtual Reality headset which allows users to move in a restricted 3-D space and interact with it using hand-held controllers which are motion tracked. 
 
-The system uses two Shure SM57 dynamic microphones with the Focusrite Scarlet 2i2 audio interface to record input stereo audio for further processing.
+The system uses a ReSpeaker 7-channel Circular Microphone Array\footnote{https://www.seeedstudio.com/} which features an XMOS XVSM-2000 DSP chip, providing excellent performance for word detection. It has a small form factor along with an LED ring to show the direction of arrival it detects. 
 
 The development of the game has been done using Unity3D as the main IDE. The system described in this paper uses JUCE \footnote{https://juce.com} to process the input audio from the microphones. This is because Unity does not natively support stereo audio input for processing. The calculated lag values from JUCE are sent to Unity using Open Sound Control(OSC), which is a communication protocol optimized for modern networking technology. Both JUCE and Unity natively support OSC communication.
 
@@ -108,8 +108,24 @@ The speech recognition used in the system is accomplished using the Microsoft Sp
 \subsection{Mechanics and UI} 
 
 \section{Feedback} 
+The game has undergone several iterations of prototyping based on user feedback. Most of the feedback was positive, with people getting excited about the potential of this technology in the world of interactive games and software. There are many robust algorithms which utilize microphone arrays to localize more than one sound source at a time. The test users were excited to learn about the possibilities these sophisticated approaches may provide in the realm of virtual reality experiences.
 
-\section{Challenges} 
+As for the design of the game, it was noticed that there was  a visible imbalance between the in-game skills required by the VR player and the non-VR player who uses his voice. There was very little skill required by the non-VR player to win the game as he could just keep saying the keyword to generate a large number of projectiles towards the VR player. This helped realize the need to limit the number of projectiles created. There was also a need to restrict potential projectile spawn points so that it is easier for the players to understand the game and how movement was actually correlated to the spawning of the projectiles. 
+To increase the skill required and the involvement of audio localization, the non-VR player was given the ability to control the path of the projectile towards the VR player by singing and changing the pitch of his voice - the pitch was directly correlated to the y-axis displacement from the original trajectory. This also provided for a fun experience for the VR user as he now had to try and guess where the opponent would take his projectile and shoot at it. 
+
+An important point of discussion was the use of a real-time key word detection library over a trained classifier, which provided much less latency but also compromised on accuracy. Because of the limited keywords used, it was deemed that a classifier would serve the needs for this game better but due to limitations in time, the author was not able to implement one. The Microsoft keyword detection software, however, does the job fairly decently with acceptable latency.
+
+Another important point of discussion was the decision to use keyword detection over singing voice analysis for the generation of game objects. This is a variation in the type of game-play made possible by the technology. The game in its current form tries to incorporate both keyword detection and singing voice analysis by utilizing pitch detection to move the instantiated projectiles. More complicated and robust singing voice analysis will be utilized in upcoming iterations of the game.
+
+There was an understandable bias towards wanting to be the VR player rather than the one trying to attack using the microphones due to the truly immersible nature of virtual reality. Future enhancements to the audio localization system will attempt to bridge this preference gap by increasing the functionality and intuitive ease of use for the non-VR player.
+
+\section{Challenges}
+There were a few main challenges which were addressed in the different stages of development of the system: 
+\begin{itemize}
+\item Unity not supporting multi channel audio from audio interfaces natively made the use of an external audio manager a necessity. The JUCE C++ library was chosen for this task because of its robust audio handling capabilities.
+\item Real-time audio source localization, information extraction, and keyword detection have varying amounts of latency associated with them. Meaningfully mapping this information to instantiated game objects so that it is understood by the players is a challenge.
+\item The restrictions introduced on the in-game audio by the acoustic nature of the system present a huge trade-off.
+\end{itemize}
 
 \section{Future Work} 
 
