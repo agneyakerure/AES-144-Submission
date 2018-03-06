@@ -36,7 +36,7 @@
 % These are used for headers. Anything that fits is okay. Please use proper punctuation.
 
 % If there are many authors, please use the form "First author et al."
-\lastnames{Kerure, and Freeman}
+\lastnames{Kerure and Freeman}
 
 % Short title should describe your topic but not be too long.
 \shorttitle{Audio Source Localization in VR}
@@ -52,25 +52,45 @@
 \maketitle % MANDATORY! 
 
 \begin{onecolabstract}
-Write the abstract here.
+This paper details an effort towards incorporating audio source localization as an input to virtual reality systems, focusing primarily on games. The goal of this research is to find a novel method to use live audio as an input for level generation or creation of elements and objects in a virtual reality environment. The paper discusses the current state of audio-based games and virtual reality, and details the design requirements of a system consisting of a circular microphone array which can be used to localize the input audio. The paper also briefly discusses signal processing techniques used for audio information retrieval, and introduces a prototype of an asymmetric virtual reality first-person shooter game as proof-of-concept of the potential of audio source localization for augmenting the immersive nature of virtual reality.
 \end{onecolabstract}
 ]
 
 \section{Introduction}
-
-Introduce to the topic.
+Audio and music have historically been a passive part of video games. Soundtracks that accompany video games are used to captivate the player's attention and incorporate a sense of realism to the game environment, but they have rarely been an active part of the game-play mechanism until recently.
+Music driven games started out in the form of rhythm based games where the player's sense of rhythm is challenged. These games typically involve a player in performing certain actions in the form of a dance or pressing buttons in a sequence. With the advent of virtual reality, 
+Virtual reality rhythm games mostly work in a similar manner but rely on hand held controllers or motion trackers to interact with the rhythmic elements of the game.
+Apart from rhythm, there are a few games which involve audio from the user as a core mechanism of game-play. These typically rely on features like volume 
+ 
+ - what you propose - why in VR - why audio
+ 
 
 \section{Background}
 
-Show your methods.
+- first rhythm game example
+
+- popular rhythm games example
+
+- audio based games example - chicken scream
+
+- VR rhythm games example
 
 \section{System}  
 
-Present results.
+- brief overview of how we localize sounds and localization systems/techniques
+
+- how circular microphone array does it
+
+- Pitch Detection
+
+- Frequency band detection 
 
 \subsection{Tools} 
-
-Discuss the results.
+Is this section even important??
+HTC Vive
+Respeaker mic array
+juce
+unity3d
 
 \section{Game Design} 
 
@@ -85,15 +105,6 @@ Discuss the results.
 Summarize your work and conclude.
 
 Example cites, \citet{Pulkki1997:VBAPbase} created VBAP and DirAC \citep{Pulkki2007:DirAC_JAES}.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum fermentum, libero nec scelerisque condimentum, libero mi porta dui, sit amet varius enim dui nec nisi. Suspendisse nulla nibh, lacinia in sapien at, tempus faucibus dolor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut facilisis erat accumsan tempor faucibus. Suspendisse ac dolor id odio iaculis sodales. Mauris nec arcu non tellus luctus mollis at vitae mi. Curabitur posuere feugiat molestie. Curabitur ac lorem vel arcu gravida volutpat.
-
-Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In lacus est, accumsan non dictum nec, volutpat non justo. Sed auctor scelerisque ante, vitae volutpat mauris elementum sit amet. Etiam interdum felis id dignissim imperdiet. Proin ullamcorper sit amet augue quis consequat. Nulla varius enim sed nisl tempus, a ultricies sem finibus. Ut vel purus malesuada, sagittis ligula ut, luctus velit. Suspendisse iaculis magna id est consectetur condimentum. Nulla facilisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce erat justo, auctor ut malesuada sed, ultrices eu odio. Integer vitae facilisis eros, sed dapibus lacus. Sed eleifend, risus ut congue tincidunt, nulla ipsum vestibulum diam, ut laoreet metus erat auctor nunc. Donec nisi diam, aliquam eget pharetra non, viverra non enim.
-
-Integer facilisis elit id mauris laoreet gravida. Etiam dictum auctor nibh, ac pharetra est aliquam et. Praesent a ligula ut turpis egestas cursus vel non ante. Nam varius facilisis urna eget finibus. Duis eleifend dui id lacus tempus aliquet. Praesent vel sodales dolor. Suspendisse potenti.
-
-Curabitur nisi felis, mollis non justo nec, sollicitudin ullamcorper lorem. Nunc mattis ullamcorper vestibulum. Aenean vitae turpis vel ipsum porttitor placerat. Etiam quis turpis quis nulla cursus rhoncus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed auctor est sed vehicula dignissim. Sed vel sem eget odio sagittis pharetra ut eu ex. Nullam fermentum ipsum non lacinia sollicitudin. Vestibulum purus ex, volutpat rutrum velit vitae, pulvinar ullamcorper mi. Maecenas tristique turpis ut justo pellentesque, in hendrerit ligula commodo. Pellentesque eget dignissim tellus.
-
 
 \bibliographystyle{jaes}
 
