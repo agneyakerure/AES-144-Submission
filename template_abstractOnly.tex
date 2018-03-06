@@ -60,9 +60,11 @@ This paper details an effort towards incorporating audio source localization as 
 Audio and music have historically been a passive part of video games. Soundtracks that accompany video games are used to captivate the player's attention and incorporate a sense of realism to the game environment, but they have rarely been an active part of the game-play mechanism until recently.
 Music driven games started out in the form of rhythm based games where the player's sense of rhythm is challenged. These games typically involve a player in performing certain actions in the form of a dance or pressing buttons in a sequence. With the advent of virtual reality, 
 Virtual reality rhythm games mostly work in a similar manner but rely on hand held controllers or motion trackers to interact with the rhythmic elements of the game.
-Apart from rhythm, there are a few games which involve audio from the user as a core mechanism of game-play. These typically rely on features like volume and pitch to control some aspects of the game.
+Apart from rhythm, there are a few games which use audio from the user as a core mechanism of game-play. These typically rely on features like volume and pitch to control some aspects of the game.
 Speech recognition has also been used as an input modality, typically for user interfaces in games.
 The use of audio and its properties as an input to games has been very minimal and with the advancement in gaming technology and signal processing prowess of computers, exploration of these possible real-time interactions is warranted.
+An important question to consider would be why use audio at all. There are other ways to locate objects and people in a vicinity around a person which include computer vision, infrared tracking, and even GPS. The advantage audio offers is the ability to process the received signal and get vast amounts of information from it, such as timbral and temporal properties, which can be used in different ways in the game with minimal hardware costs.
+Virtual reality offers a paradigm which enables interactions in 360$^\circ$. To fully utilize this paradigm, the system involves a circular microphone array which localizes sounds in 360$^\circ$. This enables truly immersive interactions.
  
 
 \section{Background}
@@ -77,12 +79,16 @@ There are many games in the virtual reality category which use music as an input
 /////////////////Should I add more research here? \cite{Igarashi:2001:VSU:502348.502372}
 
 \section{System}  
+This section describes the signal processing algorithms used, and the hardware and software requirements of the system.
 
 - brief overview of how we localize sounds and localization systems/techniques
 
 - how circular microphone array does it
 
 - Pitch Detection
+For pitch detection, the system uses the time-domain based autocorrelation approach. In this method, the autocorrelation sequence of each frame of the input audio is determined and the time lag corresponding to the second-largest peak from the central peak is used to determine the fundamental pitch period. This technique is most efficient in the mid- to low-frequency range and thus has been popular in speech recognition applications. The autocorrelation function is represented by: 
+
+\[ [R] (t)  = \int_{i=-{\infty}}^{\infty} S_i^*(\tau) S_i(t+\tau) \delta \tau  \]
 
 - Frequency band detection 
 
